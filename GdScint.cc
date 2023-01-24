@@ -1,6 +1,8 @@
 //
 /// \file GdScint.cc
 /// \brief Main program of the Gd Neutron Scintillator
+//
+// Author: Michael Wood, Canisius College
 
 #include "GdScintDetectorConstruction.hh"
 
