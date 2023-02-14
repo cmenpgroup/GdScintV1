@@ -19,12 +19,20 @@
 #include "G4SubtractionSolid.hh"
 #include "G4VisAttributes.hh"
 
+#include "G4SDManager.hh"
+#include "GdScintSD.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 GdScintDetectorConstruction::GdScintDetectorConstruction()
 : G4VUserDetectorConstruction(),
   fScoringVolume(0)
-{ }
+{ 
+
+   SDman   = G4SDManager::GetSDMpointer();
+   myGdScintSD = NULL;
+
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -44,7 +52,7 @@ G4VPhysicalVolume* GdScintDetectorConstruction::Construct()
 
   G4double inch = 0.0254*m;
   G4double foot = 0.3048*m;
-  G4double pi = 4*std::atan(1.);
+//  G4double pi = 4*std::atan(1.);
 
   ////************************************************************************
   //// MATERIALS: Data taken from http://www.webelements.com/
@@ -336,6 +344,19 @@ G4VPhysicalVolume* GdScintDetectorConstruction::Construct()
                     false,
                     0,
                     checkOverlaps);
+
+    /////////////////////////
+    //SENSITIVE DETECTORS  //
+    /////////////////////////
+
+//    G4SDManager* SDman = G4SDManager::GetSDMpointer();
+    
+    if(!myGdScintSD)
+    {
+        myGdScintSD = new GdScintSD( "GdScintSD", this );
+        SDman -> AddNewDetector( myGdScintSD );
+    }
+    logicScint -> SetSensitiveDetector ( myGdScintSD );
 
   //
   //always return the physical World

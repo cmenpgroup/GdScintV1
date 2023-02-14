@@ -83,25 +83,25 @@ void GdScintEventAction::EndOfEventAction(const G4Event* evt)
     G4double        ScintTotalEnergy = 0;
     G4ThreeVector   ScintPosition;
     G4String        ScintParticle;
-    G4double        ScintEnergy = 0;
-    G4double        ScintKE = 0;
+//    G4double        ScintEnergy = 0;
+//   G4double        ScintKE = 0;
     G4double        ScintEdep = 0;
     G4String        ScintParticleType;
-    G4double        ScintTrackLength = 0;
+//    G4double        ScintTrackLength = 0;
     G4ThreeVector   ScintMomentum;
     G4ThreeVector   ScintMomentumDir;
     G4String        ScintVertexVolumeName;
-    G4double        ScintTrackID = 0;
-    G4double        ScintParentID = 0;
+ //   G4double        ScintTrackID = 0;
+ //  G4double        ScintParentID = 0;
     G4ThreeVector   ScintVertexPosition;
     G4ThreeVector   ScintVertexMomDir;
-    G4double        ScintVertexKE = 0;
-    G4double        ScintMass = 0;
+ //   G4double        ScintVertexKE = 0;
+ //   G4double        ScintMass = 0;
     G4String        ScintNuclearProcess;
 
   ////////////////////////////////////////////////////////
-    G4int         nucHits   = 0;
-    G4int         InelasticNucHits = 0;
+  //  G4int         nucHits   = 0;
+  //  G4int         InelasticNucHits = 0;
 
     if (HCE) ScintHC     = (GdScintHitsCollection*)     (HCE->GetHC(GdScintCollID));
 
